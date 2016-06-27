@@ -457,5 +457,5 @@ public class Rectangle {
 
 @Id字段定义在字段还是属性上决定了整个类的所有属性/字段的持久化策略。
 
-范例代码可以从<a href="https://git.oschina.net/yyang/properties-and-fields.git">https://git.oschina.net/yyang/properties-and-fields</a>下载：
+范例代码可以从[https://git.oschina.net/yyang/properties-and-fields](https://git.oschina.net/yyang/properties-and-fields)下载。
 
