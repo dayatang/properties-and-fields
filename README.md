@@ -240,7 +240,7 @@ public class Rectangle implements Serializable {
 
 ### 3.1 属性和字段的名称可以是不同的
 
-例如在Rectangle类中，字段**_width**对应的属性名是**width**：
+例如在Rectangle类中，字段 **_width** 对应的属性名是 **width** ：
 
 ```java
 
