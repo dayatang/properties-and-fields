@@ -2,6 +2,7 @@ package yang.yu.training;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -71,5 +72,31 @@ public class Rectangle {
 
     public void moveTo(Point point) {
         lowerLeftCoordinate = new Point(lowerLeftCoordinate.getX() + point.getX(), lowerLeftCoordinate.getY() + point.getY());
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof Rectangle)) {
+            return false;
+        }
+        Rectangle that = (Rectangle) other;
+        return this._width == that._width &&
+                this._height == that._height;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(_width, _height);
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "_width=" + _width +
+                ", _height=" + _height +
+                '}';
     }
 }
