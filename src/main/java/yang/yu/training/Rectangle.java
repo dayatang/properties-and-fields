@@ -2,14 +2,12 @@ package yang.yu.training;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * Created by yyang on 16/6/27.
- */
 @Entity
-public class Rectangle {
+public class Rectangle implements Serializable {
 
     @Id
     private String id = UUID.randomUUID().toString();

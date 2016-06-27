@@ -14,10 +14,11 @@
 package yang.yu.training;
 
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class Point {
+public class Point implements Serializable {
     private int x;
     private int y;
 
@@ -62,10 +63,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return "Point(" + x + ", " + y + ")";
     }
 
     public static Point of(int x, int y) {
@@ -82,9 +80,12 @@ package yang.yu.training;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Objects;
+import java.util.UUID;
 
 @Entity
-public class Rectangle {
+public class Rectangle implements Serializable {
 
     @Id
     private String id = UUID.randomUUID().toString();
@@ -148,8 +149,33 @@ public class Rectangle {
     public void moveTo(Point point) {
         lowerLeftCoordinate = new Point(lowerLeftCoordinate.getX() + point.getX(), lowerLeftCoordinate.getY() + point.getY());
     }
-}
 
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof Rectangle)) {
+            return false;
+        }
+        Rectangle that = (Rectangle) other;
+        return this._width == that._width &&
+                this._height == that._height;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(_width, _height);
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "_width=" + _width +
+                ", _height=" + _height +
+                '}';
+    }
+}
 ```
 
 为了方便，矩形宽度、高度和点坐标都用整数int而不是浮点数double来表示。

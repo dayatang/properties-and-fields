@@ -1,14 +1,11 @@
 package yang.yu.training;
 
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.util.Objects;
 
-/**
- * 坐标点
- * Created by yyang on 16/6/27.
- */
 @Embeddable
-public class Point {
+public class Point implements Serializable {
     private int x;
     private int y;
 
