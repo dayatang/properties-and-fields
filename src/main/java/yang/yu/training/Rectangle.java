@@ -2,6 +2,7 @@ package yang.yu.training;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.UUID;
 
 /**
  * Created by yyang on 16/6/27.
@@ -10,7 +11,7 @@ import javax.persistence.Id;
 public class Rectangle {
 
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     private Point lowerLeftCoordinate;
 
